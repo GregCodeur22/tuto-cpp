@@ -1,9 +1,9 @@
-NAME = horde
+NAME = fixed
 SRC = main.cpp \
-      Zombie.cpp \
-			ZombieHorde.cpp
+			Fixed.cpp
+			
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

@@ -3,7 +3,7 @@ SRC = main.cpp \
 			Contact.cpp \
 			phoneBook.cpp
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all:$(NAME)
 

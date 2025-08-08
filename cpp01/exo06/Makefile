@@ -1,7 +1,6 @@
-NAME = horde
+NAME = HarlComplet
 SRC = main.cpp \
-      Zombie.cpp \
-			ZombieHorde.cpp
+			Harl.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror
 

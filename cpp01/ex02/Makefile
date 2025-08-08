@@ -1,7 +1,5 @@
-NAME = horde
-SRC = main.cpp \
-      Zombie.cpp \
-			ZombieHorde.cpp
+NAME = BRAIN
+SRC = main.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror
 

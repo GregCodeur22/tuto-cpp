@@ -1,7 +1,8 @@
-NAME = horde
+NAME = violence
 SRC = main.cpp \
-      Zombie.cpp \
-			ZombieHorde.cpp
+			Weapon.cpp \
+			HumainA.cpp\
+			HumainB.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror
 
