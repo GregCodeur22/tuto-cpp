@@ -13,7 +13,7 @@ class WrongCat : public WrongAnimal
 
 		~WrongCat()
 		{
-			cout << "Cat destroyed " << endl;
+			cout << "Cat destroyed " << endl; 
 		}
 
 		void makeSound() const

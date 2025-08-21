@@ -1,10 +1,6 @@
-NAME = Polymorphism
+NAME = Grade
 SRC = main.cpp \
-			Character.cpp \
-			AMateria.cpp \
-			Ice.cpp \
-			Cure.cpp \
-			MateriaSource.cpp
+			Bureaucrat.cpp
 
 			
 CXX = c++

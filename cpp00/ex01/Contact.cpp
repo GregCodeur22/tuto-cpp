@@ -24,6 +24,7 @@ string Contact::getFirstName()
 {
 	return (firstName);
 }
+
 string Contact::getLastName()
 {
 	return (lastName);
