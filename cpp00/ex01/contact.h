@@ -3,26 +3,25 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Contact
 {
 	private:
-		string firstName;
-		string lastName;
-		string nickName;
-		string phoneNumber;
-		string secretDark;
+		std::string firstName;
+		std::string lastName;
+		std::string nickName;
+		std::string phoneNumber;
+		std::string secretDark;
 
 	public:
 		Contact();
-		void setContact(string fn, string ln, string nn, string phone, string secret);
+		void setContact(std::string fn, std::string ln, std::string nn, std::string phone, std::string secret);
 		void displayContact();
-		string getFirstName();
-		string getLastName();
-		string getNickName();
-		string getphoneNumber();
-		string getdarkSecret();
+		std::string getFirstName();
+		std::string getLastName();
+		std::string getNickName();
+		std::string getphoneNumber();
+		std::string getdarkSecret();
 };
 
 #endif

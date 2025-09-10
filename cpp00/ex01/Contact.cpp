@@ -2,7 +2,7 @@
 
 Contact::Contact() {}
 
-void Contact::setContact(string fn, string ln, string nn, string phone, string secret)
+void Contact::setContact(std::string fn, std::string ln, std::string nn, std::string phone, std::string secret)
 {
 	firstName = fn;
 	lastName = ln;
@@ -13,34 +13,34 @@ void Contact::setContact(string fn, string ln, string nn, string phone, string s
 
 void Contact::displayContact()
 {
-	cout << "FirstName = " << firstName << endl;
-	cout << "LastName = " << lastName << endl;
-	cout << "NickName = " << nickName << endl;
-	cout << "phoneNumber = " << phoneNumber << endl;
-	cout << "dark secret  = " << secretDark << endl;
+	std::cout << "FirstName = " << firstName << std::endl;
+	std::cout << "LastName = " << lastName << std::endl;
+	std::cout << "NickName = " << nickName << std::endl;
+	std::cout << "phoneNumber = " << phoneNumber << std::endl;
+	std::cout << "dark secret  = " << secretDark << std::endl;
 }
 
-string Contact::getFirstName()
+std::string Contact::getFirstName()
 {
 	return (firstName);
 }
 
-string Contact::getLastName()
+std::string Contact::getLastName()
 {
 	return (lastName);
 }
 
-string Contact::getNickName()
+std::string Contact::getNickName()
 {
 	return (nickName);
 }
 
-string Contact::getphoneNumber()
+std::string Contact::getphoneNumber()
 {
 	return (phoneNumber);
 }
 
-string Contact::getdarkSecret()
+std::string Contact::getdarkSecret()
 {
 	return (secretDark);
 }

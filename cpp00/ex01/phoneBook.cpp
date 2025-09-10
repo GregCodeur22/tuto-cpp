@@ -7,46 +7,46 @@ PhoneBook::PhoneBook() : index(0), contactCount(0) {}
 void PhoneBook::addContact()
 {
 
-	string first, last, nick, phone, secret;
+	std::string first, last, nick, phone, secret;
 
-	cout << "Firstname: ";
-	getline(cin, first);
+	std::cout << "Firstname: ";
+	getline(std::cin, first);
 	while (first.empty())
 	{
-		cout << "Le champ ne peut pas être vide. Firstname: ";
-		getline(cin, first);
+		std::cout << "Le champ ne peut pas être vide. Firstname: ";
+		getline(std::cin, first);
 	}
 
-	cout << "Lastname: ";
-	getline(cin, last);
+	std::cout << "Lastname: ";
+	getline(std::cin, last);
 	while (last.empty())
 	{
-		cout << "Le champ ne peut pas être vide. Lastname: ";
-		getline(cin, last);
+		std::cout << "Le champ ne peut pas être vide. Lastname: ";
+		getline(std::cin, last);
 	}
 
-	cout << "Nickname: ";
-	getline(cin, nick);
+	std::cout << "Nickname: ";
+	getline(std::cin, nick);
 	while (nick.empty())
 	{
-		cout << "Le champ ne peut pas être vide. Nickname: ";
-		getline(cin, nick);
+		std::cout << "Le champ ne peut pas être vide. Nickname: ";
+		getline(std::cin, nick);
 	}
 
-	cout << "Phone: ";
-	getline(cin, phone);
+	std::cout << "Phone: ";
+	getline(std::cin, phone);
 	while (phone.empty())
 	{
-		cout << "Le champ ne peut pas être vide. Phone: ";
-		getline(cin, phone);
+		std::cout << "Le champ ne peut pas être vide. Phone: ";
+		getline(std::cin, phone);
 	}
 
-	cout << "Secret: ";
-	getline(cin, secret);
+	std::cout << "Secret: ";
+	getline(std::cin, secret);
 	while (secret.empty())
 	{
-		cout << "Le champ ne peut pas être vide. Secret: ";
-		getline(cin, secret);
+		std::cout << "Le champ ne peut pas être vide. Secret: ";
+		getline(std::cin, secret);
 	}
 
 	// Insère à la position nextIndex
@@ -64,43 +64,56 @@ void PhoneBook::searchContact()
 {
 	if (contactCount == 0)
 	{
-		cout << "Aucun contact dans le repertoire " << endl;
+		std::cout << "Aucun contact dans le repertoire " << std::endl;
 		return;
 	}
 
-	cout << setw(10) << "Index" << "|"
-		 << setw(10) << "First Name" << "|"
-		 << setw(10) << "Last Name" << "|"
-		 << setw(10) << "Nick name" << "|"
-		 << setw(10) << "phone" << "|"
-		 << setw(10) << "secret" << endl;
-	cout << "----------------------------------------------------------------" << endl;
+	std::cout << std::setw(10) << "Index" << "|"
+						<< std::setw(10) << "First Name" << "|"
+						<< std::setw(10) << "Last Name" << "|"
+						<< std::setw(10) << "Nick name" << "|"
+						<< std::setw(10) << "phone" << "|"
+						<< std::setw(10) << "secret" << std::endl;
+	std::cout << "----------------------------------------------------------------" << std::endl;
 
 	for (int i = 0; i < contactCount; i++)
 	{
-		cout << setw(10) << i << "|"
-			 << setw(10) << truncate(contacts[i].getFirstName()) << "|"
-			 << setw(10) << truncate(contacts[i].getLastName()) << "|"
-			 << setw(10) << truncate(contacts[i].getNickName()) << "|"
-			 << setw(10) << truncate(contacts[i].getphoneNumber()) << "|"
-			 << setw(10) << truncate(contacts[i].getdarkSecret()) << endl;
+		std::cout << std::setw(10) << i << "|"
+							<< std::setw(10) << truncate(contacts[i].getFirstName()) << "|"
+							<< std::setw(10) << truncate(contacts[i].getLastName()) << "|"
+							<< std::setw(10) << truncate(contacts[i].getNickName()) << "|"
+							<< std::setw(10) << truncate(contacts[i].getphoneNumber()) << "|"
+							<< std::setw(10) << truncate(contacts[i].getdarkSecret()) << std::endl;
 	}
 
-	cout << "Entrer l'index du contact a afficher " << endl;
-	string input;
+	std::cout << "Entrer l'index du contact a afficher " << std::endl;
+	std::string input;
 
-	getline(cin, input);
+	getline(std::cin, input);
+	if (input.empty())
+	{
+		std::cout << "please enter a number" << std::endl;
+		return;
+	}
+	for (size_t i = 0; i < input.size(); i++)
+	{
+		if (!isdigit(static_cast<unsigned char>(input[i])))
+		{
+			std::cout << "please enter a number" << std::endl;
+			return;
+		}
+	}
 	int index = atoi(input.c_str());
-	
+
 	if (index < 0 || index >= contactCount)
 	{
-		cout << "Index hors limite !" << endl;
+		std::cout << "Index hors limite !" << std::endl;
 		return;
 	}
 	contacts[index].displayContact();
 }
 
-string PhoneBook::truncate(string str)
+std::string PhoneBook::truncate(std::string str)
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");

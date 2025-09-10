@@ -16,7 +16,7 @@ class PhoneBook
 		void searchContact();
 	
 	private:
-		string truncate(string str);
+		std::string truncate(std::string str);
 };
 
 #endif
