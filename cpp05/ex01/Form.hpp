@@ -3,6 +3,7 @@
 
 #include "Bureaucrat.hpp"
 #include <string>
+#include <iostream>
 
 class Form
 {
@@ -13,34 +14,32 @@ class Form
 		const int gradeToExecute;
 
 	public:
-		class GradeToHighException : public std::exception
+		class GradeTooHighException : public std::exception
 		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return "Form grade too high";
-				}
+		public:
+				const char* what() const throw() { return "Form grade too high"; }
 		};
 
-		class GradeTooLowExecption : public std::exception
+		class GradeTooLowException : public std::exception
 		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return "Form grade too low";
-				}
+		public:
+				const char* what() const throw() { return "Form grade too low"; }
 		};
 
-		Form(const std::string &name, int gradeToSign, int gradeToExecute);
-		Form(const Form &rhs);
+		Form();
+		Form(const std::string& name, int gradeToSign, int gradeToExecute);
+		Form(const Form& rhs);
+		Form& operator=(const Form& rhs);
 		~Form();
-		Form &operator=(const Form &rhs);
 
-		const std::string &getName() const;
+		const std::string& getName() const;
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
-		void beSigned(const Bureaucrat &b);
+
+		void beSigned(const Bureaucrat& b);
 };
+
+std::ostream& operator<<(std::ostream& os, const Form& f);
 
 #endif

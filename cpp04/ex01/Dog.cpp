@@ -2,35 +2,42 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	brain = new Brain();
-	std::cout << "Dog created" << std::endl;
+    brain = new Brain();
+    std::cout << "Dog created" << std::endl;
 }
 
-Dog::Dog(const Dog& rhs) : Animal(rhs)
+Dog::Dog(const Dog& other) : Animal(other)
 {
-	brain = new Brain(*rhs.brain);
-	std::cout << "Dod copied" << std::endl;
+    brain = new Brain(*other.brain);
+    std::cout << "Dog copy constructed" << std::endl;
 }
 
-Dog& Dog::operator=(const Dog& rhs)
+
+Dog& Dog::operator=(const Dog& other)
 {
-	if (this != &rhs)
-	{
-		Animal::operator=(rhs);
-		delete brain;
-		brain = new Brain(*rhs.brain);
-	}
-	return *this;
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        delete brain;
+        brain = new Brain(*other.brain);
+    }
+    std::cout << "Dog assigned" << std::endl;
+    return *this;
 }
 
 Dog::~Dog()
 {
-	delete brain;
-	std::cout << "Dog destroyed" << std::endl;
+    delete brain;
+    std::cout << "Dog destroyed" << std::endl;
 }
 
 void Dog::makeSound() const
 {
-	std::cout << "Woof Woof" << std::endl;
+    std::cout << "wouaf" << std::endl;
+}
+
+Brain* Dog::getBrain() const
+{
+    return brain;
 }
 

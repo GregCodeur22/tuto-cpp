@@ -1,19 +1,24 @@
-NAME = fixed
+NAME = FragTrap
 SRC = main.cpp \
 			Claptrap.cpp \
 			ScavTrap.cpp \
 			FragTrap.cpp
-			
+
+OBJ = $(SRC:.cpp=.o)
+
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CXX) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

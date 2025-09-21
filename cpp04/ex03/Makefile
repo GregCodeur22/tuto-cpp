@@ -5,7 +5,8 @@ SRC = main.cpp \
 			Ice.cpp \
 			Cure.cpp \
 			MateriaSource.cpp
-
+			
+OBJ = $(SRC:.cpp=.o)
 			
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

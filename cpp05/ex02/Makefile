@@ -2,21 +2,25 @@ NAME = Grade
 SRC = main.cpp \
 			Bureaucrat.cpp \
 			AForm.cpp \
-			ShrubberyCreationForm.cpp \
+			PresidentialPardonForm.cpp \
 			RobotomyRequestForm.cpp \
-			PresidentialPardonForm.cpp
+			ShrubberyCreationForm.cpp
 
-			
+OBJ = $(SRC:.cpp=.o)
+
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(SRC)
-	$(CXX) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CXX) $(CFLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

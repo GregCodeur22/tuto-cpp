@@ -6,7 +6,7 @@
 int main()
 {
 
-		//Animal* test = new Animal();
+		// Animal* test = new Animal();
 
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();

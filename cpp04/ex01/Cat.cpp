@@ -1,37 +1,42 @@
 #include "Cat.hpp"
-#include "Animal.hpp"
 
 Cat::Cat() : Animal("Cat")
 {
-	brain = new Brain();
-	std::cout << "Cat created" << std::endl;
+    brain = new Brain();
+    std::cout << "Cat created" << std::endl;
 }
 
-Cat::Cat(const Cat& rhs) : Animal(rhs)
+Cat::Cat(const Cat& other) : Animal(other)
 {
-	brain = new Brain(*rhs.brain);
-	std::cout << "cat copied" << std::endl;
+    brain = new Brain(*other.brain);
+    std::cout << "Cat copy constructed" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat& rhs)
+Cat& Cat::operator=(const Cat& other)
 {
-	if (this != &rhs)
-	{
-		Animal::operator=(rhs);
-		delete brain;
-		brain = new Brain(*rhs.brain);
-	}
-	return (*this);
+    if (this != &other)
+    {
+        Animal::operator=(other);
+        if (brain)
+            delete brain;
+        brain = new Brain(*other.brain);
+    }
+    std::cout << "Cat assigned" << std::endl;
+    return *this;
 }
 
 Cat::~Cat()
 {
-	delete brain;
-	std::cout << "Cat destroyed" << std::endl;
+    delete brain;
+    std::cout << "Cat destroyed" << std::endl;
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Miaou Miaou" << std::endl;
+    std::cout << "Miaou Miaou" << std::endl;
 }
 
+Brain* Cat::getBrain() const
+{
+    return brain;
+}

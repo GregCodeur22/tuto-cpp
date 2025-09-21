@@ -7,7 +7,7 @@ int main()
     ft.attack("enemy");
     ft.takeDamage(20);
     ft.beRepaired(10);
-    ft.hightFivesGuys();
+    ft.highFivesGuys();
 
     return 0;
 }

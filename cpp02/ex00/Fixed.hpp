@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Fixed
 {
@@ -19,7 +18,6 @@ class Fixed
 
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
-
 };
 
 #endif

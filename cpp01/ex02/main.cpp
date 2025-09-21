@@ -6,7 +6,7 @@ int main()
 {
 	string brain = "HI THIS IS BRAIN";
 	string *stringPTR = &brain;
-	string &stringREF = brain;
+	string& stringREF = brain;
 
   //adresse
 	cout << "adresse of brain :" << &brain << endl;
@@ -22,3 +22,4 @@ int main()
 
 	return (0);
 }
+

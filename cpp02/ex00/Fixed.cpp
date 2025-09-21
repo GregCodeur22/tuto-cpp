@@ -1,6 +1,5 @@
-#include "Orthodox.hpp"
+#include "Fixed.hpp"
 #include "iostream"
-
 
 Fixed::Fixed() : value(0)
 {
@@ -14,7 +13,7 @@ Fixed::Fixed(const Fixed& other) : value(other.value)
 
 Fixed &Fixed::operator=(const Fixed& rhs)
 {
-	cout << "Copy assignement operator called" << endl;
+	std::cout << "Copy assignement operator called" << std::endl;
 	if (this != &rhs)
 		this->value = rhs.value;
 	return *this;
@@ -22,18 +21,17 @@ Fixed &Fixed::operator=(const Fixed& rhs)
 
 Fixed::~Fixed()
 {
-	cout << "Destructor called" << endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 int Fixed::getRawBits(void) const
 {
-	cout << "getRawBits member function called" << endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return this->value;
 }
 
-
 void Fixed::setRawBits(int const raw)
 {
-	cout << "setRawBits member function called" << endl;
+	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }

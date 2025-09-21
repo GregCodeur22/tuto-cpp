@@ -3,18 +3,17 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Zombie
 {
 	private:
-		string name;
+		std::string name;
 
 	public:
 		Zombie();
 		~Zombie();
 
-		void setName(string name);
+		void setName(std::string name);
 		void announce();
 };
 

@@ -1,3 +1,4 @@
+#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -19,8 +20,8 @@ int main()
 
 	std::cout << c->getType() << " " << std::endl;
 
-	i->makeSound();
 	j->makeSound();
+	i->makeSound();
 	meta->makeSound();
 	wrong->makeSound();
 	c->makeSound();

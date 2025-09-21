@@ -7,7 +7,7 @@ int main()
     scav.attack("Enemy");
     scav.takeDamage(30);
     scav.beRepaired(20);
-    scav.guardGard();
+    scav.guardGate();
 
     return 0;
 }

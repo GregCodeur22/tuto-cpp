@@ -1,8 +1,8 @@
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include <iostream>
 #include <string>
+#include <iostream>
 
 class Animal
 {
@@ -10,22 +10,15 @@ class Animal
 		std::string type;
 
 	public:
-		Animal(const std::string& t = "Unknow") : type (t)
-		{
-			std::cout << "Animal " << type << "created" << std::endl;
-		}
+		Animal();
+		Animal(const std::string& type);
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
 
-	virtual ~Animal()
-		{
-			std::cout << "Animal destroyed " << type << std::endl;
-		}
+		virtual void makeSound() const = 0;
 		
-	virtual void makeSound() const = 0;
-		
-		std::string getType() const
-		{
-			return type;
-		}
+		std::string getType() const;
 };
 
 #endif

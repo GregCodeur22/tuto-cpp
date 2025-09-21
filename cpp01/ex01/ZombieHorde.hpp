@@ -5,6 +5,6 @@
 #include <string>
 #include "Zombie.hpp"
 
-Zombie* ZombieHorde(int N, string name);
+Zombie* ZombieHorde(int N, std::string name);
 
 #endif

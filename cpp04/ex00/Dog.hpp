@@ -2,24 +2,17 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include <iostream>
 
 class Dog : public Animal
 {
 	public:
-		Dog() : Animal("Dog")
-		{
-			cout << "Dog created" << endl;
-		}
+		Dog();
+		Dog(const Dog& other);
+		Dog& operator=(const Dog& other);
+		virtual ~Dog();
 
-		~Dog()
-		{
-			cout << "Dog destroyed " << endl;
-		}
-
-		void makeSound() const
-		{
-			cout << "Woof Woof" << endl;
-		}
+		void makeSound() const;
 };
 
 #endif

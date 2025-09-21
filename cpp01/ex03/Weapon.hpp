@@ -12,9 +12,8 @@ class Weapon
 
 	public:
 		Weapon(string type);
-		string& getType();
-		void setType(string newType);
+		const string& getType() const;
+		void setType(const string& newType);
 };
-
 
 #endif

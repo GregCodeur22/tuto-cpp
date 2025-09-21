@@ -5,9 +5,9 @@
 DiamondTrap::DiamondTrap(const std::string& name)
     : Claptrap(name + "_clap_name"), FragTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), name(name)
 {
-    hitPoint = FragTrap::hitPoint;         // 100
-    EnergyPoint = ScavTrap::EnergyPoint;   // 50
-    AttackDamage = FragTrap::AttackDamage; // 30
+    hitPoint = FragTrap::hitPoint;
+    EnergyPoint = ScavTrap::EnergyPoint;
+    AttackDamage = FragTrap::AttackDamage;
 
     std::cout << "DiamondTrap " << this->name << " is created!" << std::endl;
 }

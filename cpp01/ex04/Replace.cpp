@@ -3,48 +3,47 @@
 #include <sstream>
 #include <string>
 
-Replace::Replace(const string &filename, const string &s1, const string &s2)
+Replace::Replace(const std::string &filename, const std::string &s1, const std::string &s2)
 {
 	this->filename = filename;
 	this->s1 = s1;
 	this->s2 = s2;
 }
 
-string Replace::readFile()
+std::string Replace::readFile()
 {
-	ifstream file(filename.c_str());
+	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 	{
-		cerr << "Error openning file\n";
+		std::cerr << "Error openning file\n";
 		return std::string("");
 	}
-	stringstream buffer;
+	std::stringstream buffer;
 	buffer << file.rdbuf();
 	return (buffer.str());
 }
 
-string Replace::replace(string &content)
+std::string Replace::ft_replace(std::string &content)
 {
-	string result;
+	std::string result;
 	size_t pos = 0;
 	size_t found;
 
-	while ((found = content.find(s1, pos)) != string::npos)
+	while ((found = content.find(s1, pos)) != std::string::npos)
 	{
 		result += content.substr(pos, found - pos);
 		result += s2;
-		pos = found + s1.length();
 	}
 	result += content.substr(pos);
 	return (result);
 }
 
-bool Replace::writeFile(string &content)
+bool Replace::writeFile(std::string &content)
 {
-	ofstream outfile(filename + "replace");
+	std::ofstream outfile((filename + ".replace").c_str());
 	if (!outfile.is_open())
 	{
-		cerr << "Error: Cannot open output file." << endl;
+		std::cerr << "Error: Cannot open output file." << std::endl;
 		return false;
 	}
 	outfile << content;
@@ -53,12 +52,12 @@ bool Replace::writeFile(string &content)
 
 bool Replace::process()
 {
-	string content = readFile();
+	std::string content = readFile();
 	if (content.empty())
 	{
-		cerr << "Error: File is empty" << endl;
+		std::cerr << "Error: File is empty" << std::endl;
 		return false;
 	}
-	string replaced = replace(content);
+	std::string replaced = ft_replace(content);
 	return (writeFile(replaced));
 }

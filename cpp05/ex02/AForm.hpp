@@ -1,59 +1,53 @@
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
-#include "Bureaucrat.hpp"
 #include <string>
+#include <iostream>
+
+class Bureaucrat;
 
 class AForm
 {
-	private:
+private:
 		const std::string name;
 		bool isSigned;
 		const int gradeToSign;
 		const int gradeToExecute;
 
-	public:
-		class GradeToHighException : public std::exception
-		{
-			public:
-				virtual const char * what() const throw()
-				{
-					return "AForm grade too high";
-				}
+public:
+		class GradeTooHighException : public std::exception {
+		public:
+				const char* what() const throw() { return "AForm grade too high"; }
 		};
 
-		class GradeTooLowExecption : public std::exception
-		{
-			public:
-				virtual const char* what() const throw()
-				{
-					return "AForm grade too low";
-				}
+		class GradeTooLowException : public std::exception {
+		public:
+				const char* what() const throw() { return "AForm grade too low"; }
 		};
 
-		class FormNotSignedException : public std::exception
-		{
-			public:
-				const char* what() const throw()
-				{
-					return "Form not signed";
-				}
+		class FormNotSignedException : public std::exception {
+		public:
+				const char* what() const throw() { return "Form not signed"; }
 		};
 
+		AForm();
 		AForm(const std::string &name, int gradeToSign, int gradeToExecute);
 		AForm(const AForm &rhs);
-		virtual ~AForm();
 		AForm &operator=(const AForm &rhs);
+		virtual ~AForm();
 
 		const std::string &getName() const;
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
+
 		void beSigned(const Bureaucrat &b);
-		virtual void execute(Bureaucrat const &execute) const = 0;
+		void execute(Bureaucrat const &executor) const;
+
+protected:
+		virtual void executeAction() const = 0;
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &form);
-
 
 #endif

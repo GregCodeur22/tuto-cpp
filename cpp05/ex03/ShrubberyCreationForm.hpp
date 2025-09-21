@@ -4,18 +4,18 @@
 #include "AForm.hpp"
 #include <string>
 
-class ShrubberyCreationForm : public AForm
-{
-	private:
+class ShrubberyCreationForm : public AForm {
+private:
 		std::string target;
 
-	public:
+public:
+		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string &target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &rhs);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 		~ShrubberyCreationForm();
 
-		void execute(Bureaucrat const &execute) const;
+		void executeAction() const;
 };
 
 #endif

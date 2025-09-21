@@ -2,11 +2,12 @@
 
 Weapon::Weapon(string type) : type(type) {};
 
-string& Weapon::getType() {
+const string& Weapon::getType() const
+{
     return type;
 }
 
-void Weapon::setType(string newType)
+void Weapon::setType(const string &newType)
 {
 	type = newType;
 }

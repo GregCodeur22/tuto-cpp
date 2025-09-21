@@ -2,24 +2,18 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include <iostream>
 
 class Cat : public Animal
 {
 	public:
-		Cat() : Animal("Cat")
-		{
-			std::cout << "Cat created " << std::endl;
-		}
+		Cat();
+		Cat(const Cat& other);
+		Cat& operator=(const Cat& other);
+		virtual ~Cat();
 
-		~Cat()
-		{
-			std::cout << "Cat destroyed " << std::endl;
-		}
-
-	virtual void makeSound() const
-		{
-			std::cout << "Miaou Miaou" << std::endl;
-		}
+		void makeSound() const ;
 };
 
 #endif
+

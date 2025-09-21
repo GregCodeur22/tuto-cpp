@@ -1,36 +1,35 @@
 #include "RobotomyRequestForm.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &t)
-	: AForm("RobotomyRequestForm", 75, 45), target(t)
-{
-	std::srand(std::time(0));
-}
+RobotomyRequestForm::RobotomyRequestForm()
+	: AForm("RobotomyRequest", 72, 45), target("default") {}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
+	: AForm("RobotomyRequest", 72, 45), target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &rhs)
-	:AForm(rhs), target(rhs.target) {}
+	: AForm(rhs), target(rhs.target) {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs)
 {
-    if (this != &rhs)
-    {
-        AForm::operator=(rhs);
-        target = rhs.target;
-    }
-    return *this;
+		if (this != &rhs)
+		{
+			AForm::operator=(rhs);
+			this->target = rhs.target;
+		}
+		return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(Bureaucrat const &execute) const
+void RobotomyRequestForm::executeAction() const
 {
-    if (!getIsSigned())
-        throw std::runtime_error("Form is not signed");
-    if (execute.getGrade() > getGradeToExecute())
-        throw GradeTooLowExecption();
-
-    std::cout << "Bzzzz... drilling noises...\n";
-    if (std::rand() % 2)
-        std::cout << target << " has been robotomized successfully!\n";
-    else
-        std::cout << "Robotomy failed on " << target << "...\n";
+	std::cout << "BZZZZZZZZZZ... drilling noises...\n";
+	std::srand(std::time(NULL));
+	if (std::rand() % 2)
+			std::cout << target << " has been robotomized successfully" << std::endl;
+	else
+			std::cout << "Robotomy failed on " << target << std::endl;
 }

@@ -3,41 +3,21 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
 
 class WrongAnimal
 {
-	protected:
-		string type;
+protected:
+		std::string type;
 
-	public:
-		WrongAnimal() : type("unknow")
-		{
-			cout << "Animal created (type : " << type << ")" << endl; 
-		}
+public:
+		WrongAnimal();
+		WrongAnimal(const std::string& t);
+		WrongAnimal(const WrongAnimal& other);
+		WrongAnimal& operator=(const WrongAnimal& other);
+		~WrongAnimal();
 
-		WrongAnimal(const string& t) : type(t)
-		{
-			cout << "Animal created (type: " << type << ")" << endl;
-		}
-
-		virtual ~WrongAnimal()
-		{
-			cout << "Animal destroyed (type: " << type << ")" << endl;
-		}
-
-		void makeSound() const
-		{
-			cout << "Animal makes some sound..." << endl;
-		}
-
-		string getType() const
-		{
-			return type;
-		}
-
+		void makeSound() const;
+		std::string getType() const;
 };
-
-
 
 #endif

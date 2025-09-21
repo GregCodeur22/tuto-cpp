@@ -2,10 +2,7 @@
 #include "iostream"
 #include <cmath>  // pour roundf
 
-Fixed::Fixed() : value(0)
-{
-	// std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : value(0) {}
 
 Fixed::Fixed(const int intValue)
 {
@@ -15,12 +12,12 @@ Fixed::Fixed(const int intValue)
 
 Fixed::Fixed(const float floatValue) {
     // std::cout << "Float constructor called" << std::endl;
-    value = roundf(floatValue * (1 << integer)); // Convertit float en fixed point
+    value = roundf(floatValue * (1 << integer));
 }
 
 Fixed::Fixed(const Fixed& other) : value(other.value)
 {
-    // std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed& rhs)

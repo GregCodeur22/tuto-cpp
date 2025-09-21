@@ -2,43 +2,40 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain created " << std::endl;
+    std::cout << "Brain created" << std::endl;
 }
 
 Brain::Brain(const Brain& rhs)
 {
-	std::cout << "Brain copied " << std::endl;
-	for (int i = 0; i < 100; i++)
-		ideas[i] = rhs.ideas[i];
+    std::cout << "Brain copied" << std::endl;
+    for (int i = 0; i < 100; ++i)
+        ideas[i] = rhs.ideas[i];
 }
 
-Brain &Brain::operator=(const Brain& rhs)
+Brain& Brain::operator=(const Brain& rhs)
 {
-	if (this != &rhs)
-	{
-		for(int i = 0; i < 100; i++)
-			ideas[i] = rhs.ideas[i];
-	}
-	return *this;
+    if (this != &rhs)
+    {
+        for (int i = 0; i < 100; ++i)
+            ideas[i] = rhs.ideas[i];
+    }
+    return *this;
 }
 
 Brain::~Brain()
 {
-	std::cout << "Brain destroyed " << std::endl;
+    std::cout << "Brain destroyed" << std::endl;
 }
 
 void Brain::setIdea(int index, const std::string& idea)
 {
-	if (index >= 0 && index < 100)
-			ideas[index] = idea;
+    if (index >= 0 && index < 100)
+        ideas[index] = idea;
 }
+
 std::string Brain::getIdea(int index) const
 {
-	if (index >= 0 && index < 100)
-		return ideas[index];
-	return "";
+    if (index >= 0 && index < 100)
+        return ideas[index];
+    return "impossible";
 }
-
-
-
-

@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 #include "Weapon.hpp"
-using namespace std;
 
 class HumanB
 {
@@ -16,7 +15,6 @@ class HumanB
 		HumanB(std::string name);
 		void setWeapon(Weapon& weapon);
 		void attack();
-		
 };
 
 #endif

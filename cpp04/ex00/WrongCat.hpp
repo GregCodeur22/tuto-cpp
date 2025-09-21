@@ -2,24 +2,17 @@
 #define WRONGCAT_HPP
 
 #include "WrongAnimal.hpp"
+#include <iostream>
 
 class WrongCat : public WrongAnimal
 {
-	public:
-		WrongCat() : WrongAnimal("Cat")
-		{
-			cout << "Cat created" << endl;
-		}
+    public:
+        WrongCat();
+        WrongCat(const WrongCat& other);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat();
 
-		~WrongCat()
-		{
-			cout << "Cat destroyed " << endl; 
-		}
-
-		void makeSound() const
-		{
-			cout << "Miaou Miaou" << endl;
-		}
+        void makeSound() const;
 };
 
 #endif

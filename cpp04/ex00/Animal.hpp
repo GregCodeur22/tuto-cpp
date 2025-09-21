@@ -3,41 +3,22 @@
 
 #include <string>
 #include <iostream>
-using namespace std;
 
 class Animal
 {
 	protected:
-		string type;
+		std::string type;
 
 	public:
-		Animal() : type("unknow")
-		{
-			cout << "Animal created (type : " << type << ")" << endl; 
-		}
+		Animal();
+		Animal(const std::string& type);
+		Animal(const Animal& other);
+		Animal& operator=(const Animal& other);
+		virtual ~Animal();
 
-		Animal(const string& t) : type(t)
-		{
-			cout << "Animal created (type: " << type << ")" << endl;
-		}
-
-		virtual ~Animal()
-		{
-			cout << "Animal destroyed (type: " << type << ")" << endl;
-		}
-
-		virtual void makeSound() const
-		{
-			cout << "Animal makes some sound..." << endl;
-		}
-
-		string getType() const
-		{
-			return type;
-		}
-
+		virtual void makeSound() const;
+		
+		std::string getType() const;
 };
-
-
 
 #endif

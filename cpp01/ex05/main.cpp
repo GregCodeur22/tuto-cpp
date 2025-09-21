@@ -1,14 +1,13 @@
 #include "Harl.hpp"
+#include <string>
 
 int main()
 {
-	Harl Harlinstance;
+    Harl Harlinstance;
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR", "UNKNOWN"};
 
-	Harlinstance.complain("DEBUG");
-	Harlinstance.complain("INFO");
-	Harlinstance.complain("WARNING");
-	Harlinstance.complain("ERROR");
-	Harlinstance.complain("UNKNOWN");
+    for (int i = 0; i < 5; i++)
+        Harlinstance.complain(levels[i]);
 
-	return (0);
+    return 0;
 }

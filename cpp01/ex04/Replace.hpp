@@ -3,20 +3,19 @@
 
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Replace
 {
 	private:
-		string filename;
-		string s1;
-		string s2;
-		string readFile();
-		string replace(string &content);
-		bool writeFile(string &content);
+		std::string filename;
+		std::string s1;
+		std::string s2;
+		std::string readFile();
+		std::string ft_replace(std::string &content);
+		bool writeFile(std::string &content);
 	
 	public:
-		Replace(const string &filename, const string &s1, const string &s2);
+		Replace(const std::string &filename, const std::string &s1, const std::string &s2);
 		bool process();
 };
 
