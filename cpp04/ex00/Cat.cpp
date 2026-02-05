@@ -24,9 +24,3 @@ Cat::~Cat() {
 void Cat::makeSound() const {
 		std::cout << "Miaou Miaou" << std::endl;
 }
-
-class GradeTooHighException : public std::exception {
-    const char* what() const throw() {
-        return "Grade too high!";
-    }
-};

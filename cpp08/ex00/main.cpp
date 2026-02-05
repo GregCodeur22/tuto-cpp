@@ -28,7 +28,7 @@ int main()
 		l.push_back(200);
 		l.push_back(300);
 
-		std::cout << "Found in vector: " << *easyfind(v, 1) << std::endl;
+		std::cout << "Found in vector: " << *easyfind(v, 5) << std::endl;
 		std::cout << "Found in deque: " << *easyfind(d, 20) << std::endl;
 		std::cout << "Found in list: " << *easyfind(l, 200) << std::endl;
 
